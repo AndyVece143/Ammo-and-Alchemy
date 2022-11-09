@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,30 +21,30 @@ public class PlayerMovement : MonoBehaviour
         // key a (move left)
         if (playerInput.x < 0)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x - 3.0f * Time.deltaTime, gameObject.transform.position.y, gameObject.transform.position.z);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-3000.0f, 0.0f, 0.0f) * Time.deltaTime);
         }
 
         // key d (move right)
         if (playerInput.x > 0)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x + 3.0f * Time.deltaTime, gameObject.transform.position.y, gameObject.transform.position.z);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(3000.0f, 0.0f, 0.0f) * Time.deltaTime);
         }
 
         // key w (move up)
         if (playerInput.y > 0)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 3.0f * Time.deltaTime, gameObject.transform.position.z);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, 3000.0f) * Time.deltaTime);
         }
 
         // key s (move down)
         if (playerInput.y < 0)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(1000.0f, 0.0f, 0.0f) * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, -3000.0f) * Time.deltaTime);
         }
     }
 
     // updates the input vector
-    public void OnAction(InputValue value)
+    public void OnMovement(InputValue value)
     {
         playerInput = value.Get<Vector2>();
     }
