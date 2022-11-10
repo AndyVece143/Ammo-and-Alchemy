@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // stores WASD input
     public Vector2 playerInput;
 
     // Start is called before the first frame update
