@@ -42,6 +42,10 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, -3000.0f) * Time.deltaTime);
         }
+        Vector3 mousePos = new Vector3(Input.mousePosition.x - 300.0f, 0, Input.mousePosition.y - 194.7f);
+        Debug.Log(Input.mousePosition.y - 194.7);
+        Debug.Log(mousePos - gameObject.transform.position );
+        transform.rotation = Quaternion.LookRotation(mousePos, Vector3.up);
     }
 
     // updates the input vector
