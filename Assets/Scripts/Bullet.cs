@@ -14,6 +14,6 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         // move bullet each frame
-        gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * -200 * Time.deltaTime);
+        gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 2000 * Time.deltaTime);
     }
 }
