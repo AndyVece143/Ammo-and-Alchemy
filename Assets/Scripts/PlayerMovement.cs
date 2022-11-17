@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,6 +10,12 @@ public class PlayerMovement : MonoBehaviour
 {
     // stores WASD input
     public Vector2 playerInput;
+
+    public string spellActive;
+    public float coolDown;
+
+    // for looping through spells/cooldowns
+    private int index = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -42,10 +49,21 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, -2000.0f) * Time.deltaTime);
         }
+
+        // rotate according to mouse position
         Vector3 mousePos = new Vector3(Input.mousePosition.x - 300.0f, 0, Input.mousePosition.y - 194.7f);
         Debug.Log(Input.mousePosition.y - 194.7);
         Debug.Log(mousePos - gameObject.transform.position );
         transform.rotation = Quaternion.LookRotation(mousePos, Vector3.up);
+
+        // subtract spell cooldown
+        coolDown -= Time.deltaTime;
+
+        // end spell if cooldown done
+        if (coolDown < 0.0f)
+        {
+            spellActive = "";
+        }
     }
 
     // updates the input vector

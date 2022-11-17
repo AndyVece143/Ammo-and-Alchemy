@@ -20,7 +20,7 @@ public class Card : MonoBehaviour
         /*
         if (cardType == "")
         {
-
+            gameObject
         }
         */
     }
@@ -36,9 +36,13 @@ public class Card : MonoBehaviour
         }
 
         // if Player has picked up card and clicks it
-        if (pickedUp && Input.GetMouseButtonDown(0))
+        if (pickedUp && Input.GetMouseButtonDown(1))
         {
-            // card activates her
+            // card activates here
+            if (cardType == "")
+            {
+                
+            }
         }
     }
 
