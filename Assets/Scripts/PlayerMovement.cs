@@ -17,10 +17,14 @@ public class PlayerMovement : MonoBehaviour
     // for looping through spells/cooldowns
     private int index = 0;
 
+    public float health;
+
+    public float width = 1;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = 3;
     }
 
     // Update is called once per frame
@@ -52,8 +56,8 @@ public class PlayerMovement : MonoBehaviour
 
         // rotate according to mouse position
         Vector3 mousePos = new Vector3(Input.mousePosition.x - 300.0f, 0, Input.mousePosition.y - 194.7f);
-        Debug.Log(Input.mousePosition.y - 194.7);
-        Debug.Log(mousePos - gameObject.transform.position );
+        //Debug.Log(Input.mousePosition.y - 194.7);
+        //Debug.Log(mousePos - gameObject.transform.position );
         transform.rotation = Quaternion.LookRotation(mousePos, Vector3.up);
 
         // subtract spell cooldown
@@ -64,11 +68,22 @@ public class PlayerMovement : MonoBehaviour
         {
             spellActive = "";
         }
+
+        //Health check
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // updates the input vector
     public void OnMovement(InputValue value)
     {
         playerInput = value.Get<Vector2>();
+    }
+
+    public void TakeDamage()
+    {
+        health -= 1;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     float timer = 0.0f;
 
@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        collisionChecker.GetComponent<BulletCollision>().bulletList.Add(gameObject);
+        collisionChecker.GetComponent<BulletCollision>().enemyBulletList.Add(gameObject);
     }
 
     // Update is called once per frame
@@ -37,9 +37,9 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void Destroyed()
+    void Destroyed()
     {
         Destroy(gameObject);
-        collisionChecker.GetComponent<BulletCollision>().bulletList.Remove(gameObject);
+        collisionChecker.GetComponent<BulletCollision>().enemyBulletList.Remove(gameObject);
     }
 }
