@@ -111,9 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d69036d4e211f45a2b3a80d4de36ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3964276772154189040, guid: a237c44b5229ae44280c1777033097e1, type: 3}
+  player: {fileID: 0}
   inRange: 0
-  health: 0
+  health: 3
+  collisionChecker: {fileID: 0}
+  width: 1
 --- !u!1 &5676153370829857488
 GameObject:
   m_ObjectHideFlags: 0

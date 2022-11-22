@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 3;
+        health = 10;
     }
 
     // Update is called once per frame
@@ -33,25 +33,25 @@ public class PlayerMovement : MonoBehaviour
         // key a (move left)
         if (playerInput.x < 0)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-2000.0f, 0.0f, 0.0f) * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-1000.0f, 0.0f, 0.0f) * Time.deltaTime);
         }
 
         // key d (move right)
         if (playerInput.x > 0)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(2000.0f, 0.0f, 0.0f) * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(1000.0f, 0.0f, 0.0f) * Time.deltaTime);
         }
 
         // key w (move up)
         if (playerInput.y > 0)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, 2000.0f) * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, 1000.0f) * Time.deltaTime);
         }
 
         // key s (move down)
         if (playerInput.y < 0)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, -2000.0f) * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, -1000.0f) * Time.deltaTime);
         }
 
         // rotate according to mouse position
