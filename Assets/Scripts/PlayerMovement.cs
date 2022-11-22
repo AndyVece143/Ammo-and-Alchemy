@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // rotate according to mouse position
-        Vector3 mousePos = new Vector3(Input.mousePosition.x - 300.0f, 0, Input.mousePosition.y - 194.7f);
+        Vector3 mousePos = new Vector3(Input.mousePosition.x - (Screen.width / 2), 0, Input.mousePosition.y - (Screen.height / 2));
         //Debug.Log(Input.mousePosition.y - 194.7);
         //Debug.Log(mousePos - gameObject.transform.position );
         transform.rotation = Quaternion.LookRotation(mousePos, Vector3.up);
