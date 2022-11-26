@@ -112,6 +112,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  card: {fileID: 252811631726416905, guid: 7a918fb9fc30ab94daa31a48791f1c8b, type: 3}
+  spellNames:
+  - speed
+  - damage
   inRange: 0
   health: 3
   collisionChecker: {fileID: 0}

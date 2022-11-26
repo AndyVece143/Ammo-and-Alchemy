@@ -17,7 +17,7 @@ public class EnemyScript : MonoBehaviour
     public bool inRange;
 
     //Health variable
-    public float health = 3;
+    public float health = 3.0f;
 
     public GameObject collisionChecker;
 
