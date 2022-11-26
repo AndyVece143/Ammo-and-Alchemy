@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
 
 public class Card : MonoBehaviour
 {
     public GameObject Player;
 
     public bool pickedUp = false;
+
+    public bool clicked = false;
 
     // what card type this is
     public string cardType;
@@ -16,7 +19,6 @@ public class Card : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-
         /*
         if (cardType == "")
         {
@@ -33,16 +35,6 @@ public class Card : MonoBehaviour
         {
             // follow player
             this.transform.position = new Vector3(Player.transform.position.x, 10, Player.transform.position.z - 2);
-        }
-
-        // if Player has picked up card and clicks it
-        if (pickedUp && Input.GetMouseButtonDown(1))
-        {
-            // card activates here
-            if (cardType == "")
-            {
-                
-            }
         }
     }
 
@@ -61,6 +53,14 @@ public class Card : MonoBehaviour
         if (other.tag == "interactable")
         {
 
+        }
+    }
+
+    void OnMouseDown()
+    {
+        if (pickedUp)
+        {
+            clicked = true;
         }
     }
 }
