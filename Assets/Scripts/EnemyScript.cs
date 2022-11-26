@@ -8,6 +8,11 @@ public class EnemyScript : MonoBehaviour
     //Reference to the player
     public GameObject player;
 
+    //Card prefab
+    public GameObject card;
+
+    public string[] spellNames = new string[] {"speed", "damage"};
+
     //Value to check if the enemy is in range of the player
     public bool inRange;
 
@@ -59,6 +64,10 @@ public class EnemyScript : MonoBehaviour
         //Health check
         if (health <= 0)
         {
+            // spawn a card
+            GameObject s = Instantiate(card, gameObject.transform.position, gameObject.transform.rotation);
+            s.GetComponent<Card>().cardType = spellNames[Mathf.FloorToInt(Random.Range(0.0f, 2.0f))] ;
+
             Destroy(gameObject);
         }
     }
