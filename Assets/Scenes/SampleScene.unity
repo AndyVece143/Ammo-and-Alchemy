@@ -384,6 +384,7 @@ MonoBehaviour:
   coolDown: 0
   health: 0
   width: 1
+  s: 0
 --- !u!54 &305071109
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -951,6 +952,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4391337663198315195, guid: 7a918fb9fc30ab94daa31a48791f1c8b, type: 3}
+      propertyPath: cardType
+      value: speed
+      objectReference: {fileID: 0}
     - target: {fileID: 252811631726416904, guid: 7a918fb9fc30ab94daa31a48791f1c8b, type: 3}
       propertyPath: m_Enabled
       value: 1

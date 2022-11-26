@@ -14,12 +14,12 @@ public class PlayerMovement : MonoBehaviour
     public string spellActive;
     public float coolDown;
 
-    // for looping through spells/cooldowns
-    private int index = 0;
-
     public float health;
 
     public float width = 1;
+
+    // player speed
+    public float s;
 
     // Start is called before the first frame update
     void Start()
@@ -30,28 +30,38 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(coolDown < 0.01)
+        {
+            spellActive = "";
+            s = 1000;
+        }
+        else if(spellActive == "speed")
+        {
+            s = 2000.0f;
+        }
+
         // key a (move left)
         if (playerInput.x < 0)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-1000.0f, 0.0f, 0.0f) * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-1.0f * s, 0.0f, 0.0f) * Time.deltaTime);
         }
 
         // key d (move right)
         if (playerInput.x > 0)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(1000.0f, 0.0f, 0.0f) * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(s, 0.0f, 0.0f) * Time.deltaTime);
         }
 
         // key w (move up)
         if (playerInput.y > 0)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, 1000.0f) * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, s) * Time.deltaTime);
         }
 
         // key s (move down)
         if (playerInput.y < 0)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, -1000.0f) * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, -1.0f * s) * Time.deltaTime);
         }
 
         // rotate according to mouse position

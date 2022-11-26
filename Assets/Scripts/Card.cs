@@ -61,6 +61,8 @@ public class Card : MonoBehaviour
         if (pickedUp)
         {
             clicked = true;
+            Player.GetComponent<PlayerMovement>().spellActive = cardType;
+            Player.GetComponent<PlayerMovement>().coolDown = 10.0f;
         }
     }
 }
