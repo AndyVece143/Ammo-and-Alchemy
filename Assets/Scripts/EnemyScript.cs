@@ -11,7 +11,7 @@ public class EnemyScript : MonoBehaviour
     //Card prefab
     public GameObject card;
 
-    public string[] spellNames = new string[] {"speed", "damage"};
+    public string[] spellNames = new string[] {"speed", "damage", "invisible"};
 
     //Value to check if the enemy is in range of the player
     public bool inRange;
@@ -45,7 +45,13 @@ public class EnemyScript : MonoBehaviour
             //Calculate the distance between the enemy and player
             //If in range, the bool is true;
             float distance = Vector3.Distance(player.transform.position, transform.position);
-            if (distance <= 20.0f)
+
+            // player invisibilty check
+            if (player.GetComponent<PlayerMovement>().spellActive == "invisible")
+            {
+                inRange = false;
+            }
+            else if (distance <= 20.0f)
             {
                 inRange = true;
             }
@@ -66,7 +72,9 @@ public class EnemyScript : MonoBehaviour
         {
             // spawn a card
             GameObject s = Instantiate(card, gameObject.transform.position, gameObject.transform.rotation);
-            s.GetComponent<Card>().cardType = spellNames[Mathf.FloorToInt(Random.Range(0.0f, 2.0f))] ;
+            int x = (Random.Range(0, 3));
+            Debug.Log(x);
+            s.GetComponent<Card>().cardType = spellNames[x] ;
 
             Destroy(gameObject);
         }

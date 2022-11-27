@@ -56,7 +56,14 @@ public class BulletCollision : MonoBehaviour
                     if (enemy.transform.position.z + enemy.GetComponent<EnemyScript>().width > bullet.transform.position.z)
                     {
                         BulletDestroy(bullet);
-                        enemy.GetComponent<EnemyScript>().health -= 1;
+                        if (player.GetComponent<PlayerMovement>().spellActive == "damage")
+                        {
+                            enemy.GetComponent<EnemyScript>().health -= 1.5f;
+                        }
+                        else
+                        {
+                            enemy.GetComponent<EnemyScript>().health -= 1;
+                        }
 
                         if (enemy.GetComponent<EnemyScript>().health == 0)
                         {

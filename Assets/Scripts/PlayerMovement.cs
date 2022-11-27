@@ -11,12 +11,18 @@ public class PlayerMovement : MonoBehaviour
     // stores WASD input
     public Vector2 playerInput;
 
+    // the name of the spell that is active
     public string spellActive;
+
+    // how long current spell will be active for
     public float coolDown;
 
     public float health;
 
     public float width = 1;
+
+    // all cards the player has
+    public List<GameObject> cards = new List<GameObject>();
 
     // player speed
     public float s;
@@ -30,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // defaults what spell is active if spell timre runs out
         if(coolDown < 0.01)
         {
             spellActive = "";
