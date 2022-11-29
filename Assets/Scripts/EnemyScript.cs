@@ -90,4 +90,15 @@ public class EnemyScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        // if Player is touching card
+        if (other.tag == "Bullet")
+        {
+            health--;
+            Destroy(other.gameObject);
+        }
+    }
 }
