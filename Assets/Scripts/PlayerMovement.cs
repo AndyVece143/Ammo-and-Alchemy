@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 //using UnityEditor.Rendering;
 using UnityEngine;
@@ -18,6 +19,12 @@ public class PlayerMovement : MonoBehaviour
     public float coolDown;
 
     public float health;
+
+    // how many potion parts have been picked up
+    public int potionsMats = 0;
+
+    // has the player won
+    public bool won = false;
 
     public float width = 1;
 
@@ -90,6 +97,11 @@ public class PlayerMovement : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+
+        if (potionsMats == 3)
+        {
+            won = true;
         }
     }
 
