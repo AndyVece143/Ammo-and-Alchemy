@@ -26,7 +26,7 @@ public class EnemyScript : MonoBehaviour
     
     private void Awake()
     {
-        collisionChecker = GameObject.FindWithTag("Manager");
+        // collisionChecker = GameObject.FindWithTag("Manager");
         player = GameObject.FindWithTag("Player");
     }
     

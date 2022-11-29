@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
-        collisionChecker = GameObject.FindWithTag("Manager");
+        // collisionChecker = GameObject.FindWithTag("Manager");
         gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 600);
     }
 

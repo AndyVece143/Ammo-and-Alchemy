@@ -2535,6 +2535,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion Part
       objectReference: {fileID: 0}
+    - target: {fileID: 7161794272871930019, guid: a0973b07edff71f4ea5d4eb9b1c172df, type: 3}
+      propertyPath: m_TagString
+      value: PotionPart
+      objectReference: {fileID: 0}
     - target: {fileID: 9069025510250342633, guid: a0973b07edff71f4ea5d4eb9b1c172df, type: 3}
       propertyPath: m_RootOrder
       value: 41

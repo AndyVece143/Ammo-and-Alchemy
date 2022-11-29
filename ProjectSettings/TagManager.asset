@@ -7,6 +7,7 @@ TagManager:
   - Manager
   - Wall
   - Bullet
+  - PotionPart
   layers:
   - Default
   - TransparentFX
