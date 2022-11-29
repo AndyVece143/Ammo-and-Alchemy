@@ -9,6 +9,7 @@ public class BackgroundScaler : MonoBehaviour
     Image backgroundImage;
     RectTransform rt;
     float ratio;
+    float extraRatio = 4.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +29,11 @@ public class BackgroundScaler : MonoBehaviour
 
         if(Screen.height * ratio >= Screen.width)
         {
-            rt.sizeDelta = new Vector2((Screen.height * ratio) / 4.5f, Screen.height / 4.5f);
+            rt.sizeDelta = new Vector2((Screen.height * ratio) / extraRatio, Screen.height / extraRatio);
         }
         else
         {
-            rt.sizeDelta = new Vector2(Screen.width / 4.5f, (Screen.width / ratio) / 4.5f);
+            rt.sizeDelta = new Vector2(Screen.width / extraRatio, (Screen.width / ratio) / extraRatio);
         }
     }
 }
