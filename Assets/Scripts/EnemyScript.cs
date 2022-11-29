@@ -12,8 +12,8 @@ public class EnemyScript : MonoBehaviour
     public GameObject card;
 
     // spell names and materials
-    public string[] spellNames = new string[] {"speed", "damage", "invisible"};
-    public Color[] spellMats = new Color[] {Color.yellow, Color.red, Color.white};
+    public string[] spellNames = new string[] {"speed", "damage", "invisible", "fireball"};
+    public Color[] spellMats = new Color[] {Color.yellow, Color.red, Color.white, Color.magenta};
 
     //Value to check if the enemy is in range of the player
     public bool inRange;
@@ -21,7 +21,7 @@ public class EnemyScript : MonoBehaviour
     //Health variable
     public float health = 3.0f;
 
-    public GameObject collisionChecker;
+    // public GameObject collisionChecker;
 
     
     private void Awake()
@@ -34,7 +34,7 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        collisionChecker.GetComponent<BulletCollision>().enemyList.Add(gameObject);
+        // collisionChecker.GetComponent<BulletCollision>().enemyList.Add(gameObject);
     }
 
     public float width = 1;
@@ -78,7 +78,7 @@ public class EnemyScript : MonoBehaviour
             GameObject s = Instantiate(card, gameObject.transform.position, gameObject.transform.rotation);
 
             // random type of card
-            int x = (Random.Range(0, 3));
+            int x = (Random.Range(0, 4));
 
             // assign name
             s.GetComponent<Card>().cardType = spellNames[x];
