@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         collisionChecker = GameObject.FindWithTag("Manager");
+        gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 600);
     }
 
     // Start is called before the first frame update
@@ -25,7 +26,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         // move bullet each frame
-        gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 2000 * Time.deltaTime);
+        gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 4000 * Time.deltaTime);
 
         // increment hiw long bullet has been out
         timer += Time.deltaTime;

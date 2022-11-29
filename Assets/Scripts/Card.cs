@@ -64,7 +64,7 @@ public class Card : MonoBehaviour
             // activate spell and cooldown
             clicked = true;
             Player.GetComponent<PlayerMovement>().spellActive = cardType;
-            Player.GetComponent<PlayerMovement>().coolDown = 10.0f;
+            Player.GetComponent<PlayerMovement>().coolDown = 5.0f;
 
             // remove from list and destroy
             Player.GetComponent<PlayerMovement>().cards.Remove(gameObject);
