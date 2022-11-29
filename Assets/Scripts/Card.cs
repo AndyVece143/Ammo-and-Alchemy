@@ -7,6 +7,7 @@ using UnityEngine.InputSystem.HID;
 public class Card : MonoBehaviour
 {
     public GameObject Player;
+    public GameObject Gun;
 
     // has the player picked up card dropped by enemy
     public bool pickedUp = false;
@@ -22,6 +23,9 @@ public class Card : MonoBehaviour
     {
         // find reference to the player
         Player = GameObject.FindGameObjectWithTag("Player");
+
+        // find reference to the gun
+        Gun = GameObject.FindGameObjectWithTag("Gun");
     }
 
     // Update is called once per frame
@@ -69,6 +73,12 @@ public class Card : MonoBehaviour
             // remove from list and destroy
             Player.GetComponent<PlayerMovement>().cards.Remove(gameObject);
             Destroy(gameObject);
+
+            // start off freball timer
+            if (cardType == "fireball")
+            {
+                Gun.GetComponent<Gun>().fireballTimer = 0.01f;
+            }
         }
     }
 }

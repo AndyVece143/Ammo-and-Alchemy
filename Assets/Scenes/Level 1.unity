@@ -3303,6 +3303,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3964276771636291292, guid: a237c44b5229ae44280c1777033097e1, type: 3}
+      propertyPath: fireball
+      value: 
+      objectReference: {fileID: 597137506135072322, guid: fc7b86ebd0e35954a8577f5256ab50c5, type: 3}
+    - target: {fileID: 3964276771636291294, guid: a237c44b5229ae44280c1777033097e1, type: 3}
+      propertyPath: m_TagString
+      value: Gun
+      objectReference: {fileID: 0}
     - target: {fileID: 3964276772154189001, guid: a237c44b5229ae44280c1777033097e1, type: 3}
       propertyPath: m_RootOrder
       value: 20

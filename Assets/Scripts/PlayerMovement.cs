@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     // all cards the player has
     public List<GameObject> cards = new List<GameObject>();
 
+    // player damage
+    public float d;
+
     // player speed
     public float s;
 
@@ -47,11 +50,16 @@ public class PlayerMovement : MonoBehaviour
         if(coolDown < 0.01)
         {
             spellActive = "";
+            d = 1.0f;
             s = 1000;
         }
         else if(spellActive == "speed")
         {
             s = 2000.0f;
+        }
+        else if (spellActive == "damage")
+        {
+            d = 1.5f;
         }
 
         // key a (move left)

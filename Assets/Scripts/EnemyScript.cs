@@ -97,8 +97,14 @@ public class EnemyScript : MonoBehaviour
         // if Player is touching card
         if (other.tag == "Bullet")
         {
-            health--;
+            health -= player.GetComponent<PlayerMovement>().d;
             Destroy(other.gameObject);
+        }
+
+        // if Player is touching card
+        if (other.tag == "Fireball")
+        {
+            health -= 10;
         }
     }
 }
