@@ -8,18 +8,18 @@ public class Bullet : MonoBehaviour
 
     public float width = 0.2f;
 
-    public GameObject collisionChecker;
+    // public GameObject collisionChecker;
 
     private void Awake()
     {
-        collisionChecker = GameObject.FindWithTag("Manager");
+        // collisionChecker = GameObject.FindWithTag("Manager");
         gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 600);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        collisionChecker.GetComponent<BulletCollision>().bulletList.Add(gameObject);
+        // collisionChecker.GetComponent<BulletCollision>().bulletList.Add(gameObject);
     }
 
     // Update is called once per frame
@@ -37,10 +37,18 @@ public class Bullet : MonoBehaviour
             Destroyed();
         }
     }
+    void OnTriggerEnter(Collider other)
+    {
+        // if Player is touching card
+        if (other.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void Destroyed()
     {
         Destroy(gameObject);
-        collisionChecker.GetComponent<BulletCollision>().bulletList.Remove(gameObject);
+        // collisionChecker.GetComponent<BulletCollision>().bulletList.Remove(gameObject);
     }
 }

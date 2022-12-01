@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Manager
+  - Wall
+  - Bullet
+  - PotionPart
+  - Gun
+  - Fireball
   layers:
   - Default
   - TransparentFX

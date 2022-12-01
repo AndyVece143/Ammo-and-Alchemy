@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8647750123189313776}
   - component: {fileID: 2256743065581013141}
   - component: {fileID: 7670245296742961003}
-  - component: {fileID: -7658960579657628704}
+  - component: {fileID: -8736435623062561933}
+  - component: {fileID: 7535717805364606374}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -94,12 +95,12 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204191341151824505}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-7658960579657628704
+--- !u!114 &-8736435623062561933
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,6 +118,38 @@ MonoBehaviour:
   - speed
   - damage
   - invisible
+  spellMats:
+  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  inRange: 0
+  health: 3
+  collisionChecker: {fileID: 0}
+  width: 1
+--- !u!114 &7535717805364606374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204191341151824505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d69036d4e211f45a2b3a80d4de36ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  card: {fileID: 252811631726416905, guid: 7a918fb9fc30ab94daa31a48791f1c8b, type: 3}
+  spellNames:
+  - speed
+  - damage
+  - invisible
+  - fireball
+  spellMats:
+  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
   inRange: 0
   health: 3
   collisionChecker: {fileID: 0}
