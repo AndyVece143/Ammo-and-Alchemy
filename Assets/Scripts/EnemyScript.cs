@@ -11,9 +11,11 @@ public class EnemyScript : MonoBehaviour
     //Card prefab
     public GameObject card;
 
+    //Materials
+    public Material[] mats = new Material[4];
+
     // spell names and materials
     public string[] spellNames = new string[] {"speed", "damage", "invisible", "fireball"};
-    public Color[] spellMats = new Color[] {Color.yellow, Color.red, Color.white, Color.magenta};
 
     //Value to check if the enemy is in range of the player
     public bool inRange;
@@ -85,7 +87,7 @@ public class EnemyScript : MonoBehaviour
 
             // assign material
             // help from https://answers.unity.com/questions/1211937/change-color-in-c-with-rgb-values.html
-            s.GetComponent<Renderer>().material.color = spellMats[x];
+            s.GetComponent<Renderer>().material = mats[x];
 
             Destroy(gameObject);
         }

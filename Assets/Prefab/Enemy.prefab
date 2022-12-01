@@ -114,17 +114,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   card: {fileID: 252811631726416905, guid: 7a918fb9fc30ab94daa31a48791f1c8b, type: 3}
+  mats:
+  - {fileID: 2100000, guid: a64bc86759fc04de6a7def37ea420a2e, type: 2}
+  - {fileID: 2100000, guid: c52db56365e6942f3aa9539690795fb9, type: 2}
+  - {fileID: 2100000, guid: f57bb10f8e4d90a45993f485cb5635b8, type: 2}
+  - {fileID: 2100000, guid: f1ade40c942064566b5fffc1eeaecc56, type: 2}
   spellNames:
   - speed
   - damage
   - invisible
-  spellMats:
-  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 1, g: 1, b: 1, a: 1}
   inRange: 0
   health: 3
-  collisionChecker: {fileID: 0}
   width: 1
 --- !u!114 &7535717805364606374
 MonoBehaviour:
@@ -133,26 +133,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204191341151824505}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90d69036d4e211f45a2b3a80d4de36ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   card: {fileID: 252811631726416905, guid: 7a918fb9fc30ab94daa31a48791f1c8b, type: 3}
+  mats:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   spellNames:
   - speed
   - damage
   - invisible
   - fireball
-  spellMats:
-  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0, b: 1, a: 1}
   inRange: 0
   health: 3
-  collisionChecker: {fileID: 0}
   width: 1
 --- !u!1 &5676153370829857488
 GameObject:
