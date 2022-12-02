@@ -25,6 +25,8 @@ public class EnemyScript : MonoBehaviour
 
     // public GameObject collisionChecker;
 
+    //Invincible check
+    public bool invincible = false;
     
     private void Awake()
     {
@@ -69,6 +71,9 @@ public class EnemyScript : MonoBehaviour
                 //Get the player position and rotate toward them
                 Vector3 playerPosition = player.transform.position - transform.position;
                 transform.rotation = Quaternion.LookRotation(playerPosition, Vector3.up);
+
+                float step = (1 * Time.deltaTime) / 2;
+                transform.position = Vector3.Lerp(transform.position, player.transform.position, step);
             }
         }
 
@@ -80,7 +85,7 @@ public class EnemyScript : MonoBehaviour
             GameObject s = Instantiate(card, gameObject.transform.position, gameObject.transform.rotation);
 
             // random type of card
-            int x = (Random.Range(0, 4));
+            int x = (Random.Range(0, 3));
 
             // assign name
             s.GetComponent<Card>().cardType = spellNames[x];
@@ -93,20 +98,30 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-
     void OnTriggerEnter(Collider other)
     {
         // if Player is touching card
-        if (other.tag == "Bullet")
+        if (other.tag == "Bullet" && invincible == false)
         {
             health -= player.GetComponent<PlayerMovement>().d;
+            StartCoroutine(waiter());
             Destroy(other.gameObject);
         }
 
         // if Player is touching card
-        if (other.tag == "Fireball")
+        if (other.tag == "Fireball" && invincible == false)
         {
             health -= 10;
         }
+    }
+
+    //The invincibility check is so that the same bullet do not hit the enemy twice
+    IEnumerator waiter()
+    {
+        invincible = true;
+
+        yield return 0;
+
+        invincible = false;
     }
 }

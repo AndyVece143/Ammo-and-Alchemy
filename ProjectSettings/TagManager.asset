@@ -10,6 +10,9 @@ TagManager:
   - PotionPart
   - Gun
   - Fireball
+  - EnemyBullet
+  - Door
+  - Enemy
   layers:
   - Default
   - TransparentFX

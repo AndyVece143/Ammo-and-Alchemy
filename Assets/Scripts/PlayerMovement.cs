@@ -37,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
     // player speed
     public float s;
 
+    //I-Frame bool
+    public bool invincible = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -122,5 +125,25 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage()
     {
         health -= 1;
+        StartCoroutine(waiter());
+    }
+
+    
+    void OnTriggerEnter(Collider other)
+    {
+        // If the player gets hit by a bullet
+        if (other.tag == "EnemyBullet" && invincible == false)
+        {
+           TakeDamage();
+        }
+    }
+    
+    IEnumerator waiter()
+    {
+        invincible = true;
+
+        yield return new WaitForSeconds(2);
+
+        invincible = false;
     }
 }

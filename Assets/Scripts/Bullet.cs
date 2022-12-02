@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // if Player is touching card
-        if (other.tag == "Wall")
+        if (other.tag == "Wall" || other.tag == "Enemy")
         {
             Destroy(gameObject);
         }

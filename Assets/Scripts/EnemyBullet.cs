@@ -40,6 +40,15 @@ public class EnemyBullet : MonoBehaviour
     void Destroyed()
     {
         Destroy(gameObject);
-        collisionChecker.GetComponent<BulletCollision>().enemyBulletList.Remove(gameObject);
+        //collisionChecker.GetComponent<BulletCollision>().enemyBulletList.Remove(gameObject);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        //If bullet collides with the player or a wall
+        if (other.tag == "Player" || other.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
     }
 }
