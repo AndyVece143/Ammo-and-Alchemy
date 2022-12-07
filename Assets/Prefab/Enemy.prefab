@@ -117,7 +117,7 @@ MonoBehaviour:
   mats:
   - {fileID: 2100000, guid: a64bc86759fc04de6a7def37ea420a2e, type: 2}
   - {fileID: 2100000, guid: c52db56365e6942f3aa9539690795fb9, type: 2}
-  - {fileID: 2100000, guid: f57bb10f8e4d90a45993f485cb5635b8, type: 2}
+  - {fileID: 2100000, guid: 3525e54e022fe421f899de37f4d2b1b7, type: 2}
   - {fileID: 2100000, guid: f1ade40c942064566b5fffc1eeaecc56, type: 2}
   spellNames:
   - speed
@@ -125,6 +125,7 @@ MonoBehaviour:
   - invisible
   inRange: 0
   health: 3
+  invincible: 0
   width: 1
 --- !u!65 &-3347857771742001687
 BoxCollider:
