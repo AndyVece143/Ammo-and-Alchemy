@@ -136,6 +136,11 @@ public class PlayerMovement : MonoBehaviour
         {
            TakeDamage();
         }
+
+        if (other.tag == "Enemy" && invincible == false)
+        {
+            TakeDamage();
+        }
     }
     
     IEnumerator waiter()
