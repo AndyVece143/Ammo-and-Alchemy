@@ -16,7 +16,7 @@ public class EnemyGun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxCountdown = 2;
+        maxCountdown = 1;
         countdown = maxCountdown;
     }
 

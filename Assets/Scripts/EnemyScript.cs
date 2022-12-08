@@ -85,7 +85,7 @@ public class EnemyScript : MonoBehaviour
             GameObject s = Instantiate(card, gameObject.transform.position, gameObject.transform.rotation);
 
             // random type of card
-            int x = (Random.Range(0, 3));
+            int x = (Random.Range(0, 4));
 
             // assign name
             s.GetComponent<Card>().cardType = spellNames[x];
