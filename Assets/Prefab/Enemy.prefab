@@ -123,6 +123,7 @@ MonoBehaviour:
   - speed
   - damage
   - invisible
+  - fireball
   inRange: 0
   health: 3
   invincible: 0
