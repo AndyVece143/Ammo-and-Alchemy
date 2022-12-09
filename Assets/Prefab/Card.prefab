@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  Gun: {fileID: 0}
   pickedUp: 0
   clicked: 0
   cardType: 
+  spellSound: {fileID: 8300000, guid: 18c7a2e2e1c874312a30ee9df5e21f9d, type: 3}

@@ -19,6 +19,7 @@ public class EnemyBullet : MonoBehaviour
     void Start()
     {
         collisionChecker.GetComponent<BulletCollision>().enemyBulletList.Add(gameObject);
+        
     }
 
     // Update is called once per frame

@@ -18,6 +18,10 @@ public class Card : MonoBehaviour
     // what type of spell this is
     public string cardType;
 
+    //Audio
+    [SerializeField]
+    AudioClip spellSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +69,8 @@ public class Card : MonoBehaviour
     {
         if (pickedUp)
         {
+            AudioSource.PlayClipAtPoint(spellSound, Player.transform.position);
+
             // activate spell and cooldown
             clicked = true;
             Player.GetComponent<PlayerMovement>().spellActive = cardType;
@@ -74,7 +80,7 @@ public class Card : MonoBehaviour
             Player.GetComponent<PlayerMovement>().cards.Remove(gameObject);
             Destroy(gameObject);
 
-            // start off freball timer
+            // start off fireball timer
             if (cardType == "fireball")
             {
                 Gun.GetComponent<Gun>().fireballTimer = 0.01f;

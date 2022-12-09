@@ -127,6 +127,7 @@ MonoBehaviour:
   inRange: 0
   health: 3
   invincible: 0
+  enemyDeath: {fileID: 8300000, guid: f4d539551e97542279c2757c7bf6bb5b, type: 3}
   width: 1
 --- !u!65 &-3347857771742001687
 BoxCollider:

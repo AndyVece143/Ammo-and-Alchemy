@@ -27,6 +27,10 @@ public class EnemyScript : MonoBehaviour
 
     //Invincible check
     public bool invincible = false;
+
+    //Sound
+    [SerializeField]
+    AudioClip enemyDeath;
     
     private void Awake()
     {
@@ -81,6 +85,9 @@ public class EnemyScript : MonoBehaviour
         //Health check
         if (health <= 0)
         {
+            //Play Sound
+            AudioSource.PlayClipAtPoint(enemyDeath, transform.position);
+
             // spawn a card
             GameObject s = Instantiate(card, gameObject.transform.position, gameObject.transform.rotation);
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8507593244196461006}
   - component: {fileID: 9049103185445638446}
   - component: {fileID: -7153332289050724110}
-  - component: {fileID: 7007873544176175330}
+  - component: {fileID: 8718250035727891248}
   m_Layer: 0
   m_Name: Enemy Bullet
   m_TagString: EnemyBullet
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 0.2
   collisionChecker: {fileID: 0}
---- !u!82 &7007873544176175330
+--- !u!82 &8718250035727891248
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,13 +142,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 32f9a4c231db742f3bf75ea405639fff, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.504
+  m_Volume: 0.085
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
