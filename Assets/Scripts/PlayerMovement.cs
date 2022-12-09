@@ -6,6 +6,8 @@ using Unity.VisualScripting;
 //using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
 
     // how many potion parts have been picked up
     public int potionsMats = 0;
+
+    // what level the player is on
+    public int levelScene = 1;
 
     // has the player won
     public bool won = false;
@@ -114,6 +119,17 @@ public class PlayerMovement : MonoBehaviour
         {
             won = true;
         }
+
+        // Potion Part Check
+        if (potionsMats == 3 && levelScene == 1)
+        {
+            SceneManager.LoadScene(2);
+            levelScene = 2;
+        }
+        else if (potionsMats == 3 && levelScene == 2)
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 
     // updates the input vector
@@ -150,5 +166,43 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         invincible = false;
+    }
+
+    // Menu Methods
+
+    public void BackToGame()
+    {
+        //Time.timeScale = 1;
+        //canMove = true;
+        //characterController.enabled = true;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //paused = false;
+        //PauseMenu.SetActive(false);
+        //ControlsMenu.SetActive(false);
+
+    }
+
+    public void PauseMenuButton()
+    {
+        //PauseMenu.SetActive(true);
+        //ControlsMenu.SetActive(false);
+
+    }
+
+    public void ControlsMenuButton()
+    {
+        //PauseMenu.SetActive(false);
+        //ControlsMenu.SetActive(true);
+    }
+
+    public void QuitToMainMenu()
+    {
+        //SceneManager.LoadScene(0);
+    }
+
+    public void QuitButton()
+    {
+        //Application.Quit();
     }
 }
