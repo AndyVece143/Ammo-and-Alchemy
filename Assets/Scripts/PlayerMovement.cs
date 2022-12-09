@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 1;
+        health = 10;
         died = false;
 
         HealthUI.SetActive(true);
