@@ -7,6 +7,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -45,23 +47,50 @@ public class PlayerMovement : MonoBehaviour
     //I-Frame bool
     public bool invincible = false;
 
+    // Menu objects and pausing variables
+    public GameObject HealthUI;
+    public TMP_Text healthText;
+
+    public GameObject PotionUI;
+    public TMP_Text potionText;
+
+    public GameObject PauseMenu;
+    public GameObject ControlsMenu;
+    public GameObject DeathMenu;
+
+    public GameObject Gun;
+
+    private bool paused;
+    private bool died;
+
     // Start is called before the first frame update
     void Start()
     {
-        health = 10;
+        health = 1;
+        died = false;
+
+        HealthUI.SetActive(true);
+        PotionUI.SetActive(true);
+        PauseMenu.SetActive(false);
+        ControlsMenu.SetActive(false);
+        DeathMenu.SetActive(false);
+
+        Time.timeScale = 1;
+        paused = false;
+        spellActive = "";
     }
 
     // Update is called once per frame
     void Update()
     {
         // defaults what spell is active if spell timre runs out
-        if(coolDown < 0.01)
+        if (coolDown < 0.01)
         {
             spellActive = "";
             d = 1.0f;
             s = 1000;
         }
-        else if(spellActive == "speed")
+        else if (spellActive == "speed")
         {
             s = 2000.0f;
         }
@@ -112,8 +141,15 @@ public class PlayerMovement : MonoBehaviour
         //Health check
         if (health <= 0)
         {
-            Destroy(gameObject);
+            died = true;
+            DeathMenu.SetActive(true);
+            Time.timeScale = 0;
+            spellActive = "invisible";
+            gameObject.GetComponent<Renderer>().enabled = false;
+            Gun.GetComponent<Renderer>().enabled = false;
         }
+
+        healthText.text = health.ToString();
 
         if (potionsMats == 3)
         {
@@ -129,9 +165,23 @@ public class PlayerMovement : MonoBehaviour
         else if (potionsMats == 3 && levelScene == 2)
         {
             SceneManager.LoadScene(3);
+            levelScene = 3;
+        }
+
+        potionText.text = potionsMats.ToString();
+
+        if (Input.GetButton("Cancel"))
+        {
+            if (!paused && !died)
+            {
+                Time.timeScale = 0;
+                spellActive = "invisible";
+                paused = true;
+
+                PauseMenuButton();
+            }
         }
     }
-
     // updates the input vector
     public void OnMovement(InputValue value)
     {
@@ -172,37 +222,38 @@ public class PlayerMovement : MonoBehaviour
 
     public void BackToGame()
     {
-        //Time.timeScale = 1;
-        //canMove = true;
-        //characterController.enabled = true;
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
-        //paused = false;
-        //PauseMenu.SetActive(false);
-        //ControlsMenu.SetActive(false);
-
+        Time.timeScale = 1;
+        paused = false;
+        spellActive = "";
+        PauseMenu.SetActive(false);
+        ControlsMenu.SetActive(false);
+        HealthUI.SetActive(true);
+        PotionUI.SetActive(true);
     }
 
     public void PauseMenuButton()
     {
-        //PauseMenu.SetActive(true);
-        //ControlsMenu.SetActive(false);
-
+        PauseMenu.SetActive(true);
+        ControlsMenu.SetActive(false);
+        HealthUI.SetActive(false);
+        PotionUI.SetActive(false);
     }
 
     public void ControlsMenuButton()
     {
-        //PauseMenu.SetActive(false);
-        //ControlsMenu.SetActive(true);
+        PauseMenu.SetActive(false);
+        ControlsMenu.SetActive(true);
+        HealthUI.SetActive(false);
+        PotionUI.SetActive(false);
     }
 
     public void QuitToMainMenu()
     {
-        //SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);
     }
 
     public void QuitButton()
     {
-        //Application.Quit();
+        Application.Quit();
     }
 }
